@@ -1,26 +1,22 @@
 package main
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/Asker231/link-shortener.git/config"
 	"github.com/Asker231/link-shortener.git/internal/auth"
 )
 
-
-
 func main() {
-	_, authConf :=config.NewConfig()
+	_, authConf := config.NewConfig()
 	app := http.NewServeMux()
 	server := http.Server{
-		Addr: ":30",
+		Addr:    ":8080",
 		Handler: app,
 	}
 
-	auth.NewAuthHandker(app,authConf)
+	auth.NewAuthHandker(app, authConf)
 
+	server.ListenAndServe()
 
-	log.Fatal(server.ListenAndServe())
- 
 }
