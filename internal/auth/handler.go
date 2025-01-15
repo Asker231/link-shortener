@@ -2,7 +2,6 @@ package auth
 
 import (
 	"net/http"
-
 	"github.com/Asker231/link-shortener.git/config"
 )
 
@@ -22,7 +21,8 @@ func NewAuthHandker(app *http.ServeMux,authConf *config.AuthConfig){
 
 func(a *Auth)Register()http.HandlerFunc{
 	return func(w http.ResponseWriter, r *http.Request) {
-		
+	     //прочитать body и провалидировать 
+		//реализовать функцию возврата JSON	
 	}
 }
 func(a *Auth)Login()http.HandlerFunc{
