@@ -15,7 +15,7 @@ type (
 	}
 )
 
-func NewAuthHandker(app *http.ServeMux, authConf *config.AuthConfig) {
+func NewAuthHandler(app *http.ServeMux, authConf *config.AuthConfig) {
 	auth := &Auth{
 		config: authConf,
 	}
