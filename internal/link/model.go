@@ -8,13 +8,13 @@ import (
 
 type Link struct{
 	*gorm.Model
-	URL string `json:"url"`
+	Url string `json:"url"`
 	Hash string `json:"hash"`
 }
 
 func NewLink(url string)*Link{
 	return &Link{
-		URL: url,
+		Url: url,
 		Hash: GenerateHash(6),
 	}
 }

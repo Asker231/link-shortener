@@ -14,8 +14,9 @@ func main() {
 	appConf, authConf := config.NewConfig()
 	
 	//connectToDataBase
-	_ = db.ConnectDataBase(*appConf)
-
+	database := db.ConnectDataBase(*appConf)
+	//repositories
+	repoLink := link.NewLinkRepository(database)	
 	//create router app
 	app := http.NewServeMux()
 
@@ -28,7 +29,7 @@ func main() {
 	//authHandler
 	auth.NewAuthHandler(app,authConf)
 	//linkHandler
-	link.NewHandlerLink(app)
+	link.NewHandlerLink(app,*repoLink)
 
 
 	server.ListenAndServe()
