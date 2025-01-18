@@ -1,6 +1,8 @@
 package link
 
-import "gorm.io/gorm"
+import (
+	"gorm.io/gorm"
+)
 
 
 type Repository struct{
@@ -11,6 +13,12 @@ func NewLinkRepository(db *gorm.DB)*Repository{
 	return &Repository{
 		DtaBase: db,
 	}
+}
+
+func(r *Repository)GetAll()[]Link{
+	 var links []Link
+	 r.DtaBase.Find(&links)
+	 return links	
 }
 
 func(r *Repository)CreateLink( link *Link){
